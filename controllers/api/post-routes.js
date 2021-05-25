@@ -4,6 +4,7 @@ const { Post, User, Vote, Comment } = require("../../models");
 
 // get all users
 router.get("/", (req, res) => {
+    console.log("=====================");
     Post.findAll({
         attributes: ["id", "post_url", "title", "created_at",
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -117,6 +118,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
+    console.log("id", req.params.id);
     Post.destroy({
         where: {
             id: req.params.id
