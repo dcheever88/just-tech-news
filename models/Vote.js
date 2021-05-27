@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const router = require("../routes/api/user-routes");
+const router = require("../controllers/api/user-routes");
 
 class Vote extends Model {}
 
